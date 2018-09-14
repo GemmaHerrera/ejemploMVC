@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="DataClasses">
+  <DataContextMoniker Name="/DataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="210c244d-9348-485c-8000-8509c45ac227" absoluteBounds="0.75, 1.375, 2, 1.3862939453125003">
+      <DataClassMoniker Name="/DataClassesDataContext/Categoria" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6fc20b96-7d4f-4c2a-91bf-4d27a276c68a" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="581496a8-4a55-4c0f-a036-39240de679e6" absoluteBounds="6.25, 1.25, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/DataClassesDataContext/Compra" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0723d6ba-84c8-4ac2-9dbe-9e82721bbddf" absoluteBounds="6.265, 1.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2f0c78a0-d29a-4a02-90c0-c36ee58d5a22" absoluteBounds="3.5, 1, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/DataClassesDataContext/Prenda" />
+      <nestedChildShapes>
+        <elementListCompartment Id="bc16faea-5831-4562-a679-b2471b254f25" absoluteBounds="3.515, 1.46, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7a284fb5-e32c-437b-8b1f-da37f34d7fda" absoluteBounds="0.75, 5.375, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/DataClassesDataContext/Temporada" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ba49dd0d-a543-4784-a5d4-5831d508390e" absoluteBounds="0.765, 5.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="18842ffa-96ab-4d5b-8870-589a712681bb" absoluteBounds="3.5, 5.125, 2, 1.9631982421875005">
+      <DataClassMoniker Name="/DataClassesDataContext/Usuario" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7fb5f19a-4a48-4179-95d4-e9ec67973e43" absoluteBounds="3.515, 5.585, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 2.13544840494792); (6.25 : 2.13544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Prenda/Prenda_Compra" />
+      <nodes>
+        <classShapeMoniker Id="2f0c78a0-d29a-4a02-90c0-c36ee58d5a22" />
+        <classShapeMoniker Id="581496a8-4a55-4c0f-a036-39240de679e6" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.06814697265625); (3.5 : 2.06814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Categoria/Categoria_Prenda" />
+      <nodes>
+        <classShapeMoniker Id="210c244d-9348-485c-8000-8509c45ac227" />
+        <classShapeMoniker Id="2f0c78a0-d29a-4a02-90c0-c36ee58d5a22" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 5.375); (3.125 : 5); (3.125 : 2.73922603971354); (3.5 : 2.73922603971354)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Temporada/Temporada_Prenda" />
+      <nodes>
+        <classShapeMoniker Id="7a284fb5-e32c-437b-8b1f-da37f34d7fda" />
+        <classShapeMoniker Id="2f0c78a0-d29a-4a02-90c0-c36ee58d5a22" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 6.10659912109375); (7.25 : 6.10659912109375); (7.25 : 3.02089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Usuario/Usuario_Compra" />
+      <nodes>
+        <classShapeMoniker Id="18842ffa-96ab-4d5b-8870-589a712681bb" />
+        <classShapeMoniker Id="581496a8-4a55-4c0f-a036-39240de679e6" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

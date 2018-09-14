@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Boutique" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=DESKTOP-3V4FRQM;Initial Catalog=Boutique;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BoutiqueConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Categoria" Member="Categoria">
+    <Type Name="Categoria">
+      <Column Name="IDCateg" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Categoria" Member="Categoria1" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Categoria_Prenda" Member="Prenda" ThisKey="IDCateg" OtherKey="IDCateg" Type="Prenda" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Compra" Member="Compra">
+    <Type Name="Compra">
+      <Column Name="IDCompra" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="IDUsuario" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IDPrenda" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Cantidad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Prenda_Compra" Member="Prenda" ThisKey="IDPrenda" OtherKey="IDPrenda" Type="Prenda" IsForeignKey="true" />
+      <Association Name="Usuario_Compra" Member="Usuario" ThisKey="IDUsuario" OtherKey="IDUsuario" Type="Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Prenda" Member="Prenda">
+    <Type Name="Prenda">
+      <Column Name="IDPrenda" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Color" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Precio" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Talla" Type="System.String" DbType="NVarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="IDCateg" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="IDTemp" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Association Name="Prenda_Compra" Member="Compra" ThisKey="IDPrenda" OtherKey="IDPrenda" Type="Compra" />
+      <Association Name="Categoria_Prenda" Member="Categoria" ThisKey="IDCateg" OtherKey="IDCateg" Type="Categoria" IsForeignKey="true" />
+      <Association Name="Temporada_Prenda" Member="Temporada" ThisKey="IDTemp" OtherKey="IDTemp" Type="Temporada" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Temporada" Member="Temporada">
+    <Type Name="Temporada">
+      <Column Name="IDTemp" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FechaCreacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Temporada" Member="Temporada1" Type="System.String" DbType="NVarChar(1) NOT NULL" CanBeNull="false" />
+      <Association Name="Temporada_Prenda" Member="Prenda" ThisKey="IDTemp" OtherKey="IDTemp" Type="Prenda" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuario" Member="Usuario">
+    <Type Name="Usuario">
+      <Column Name="IDUsuario" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Nombre" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Tipo" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Administrador" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Usuario_Compra" Member="Compra" ThisKey="IDUsuario" OtherKey="IDUsuario" Type="Compra" />
+    </Type>
+  </Table>
+</Database>
